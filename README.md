@@ -12,6 +12,28 @@ A custom node extension for ComfyUI that allows you to route your image previews
 
 Whether you want a clean canvas without giant preview nodes cluttering your workspace, or you want to dedicate a second physical monitor purely to viewing your generated outputs, this plugin has you covered.
 
+This extension adds five custom nodes under the **Add Node > Breakout** menu. 
+
+### Viewers
+These nodes receive image data from your workflow and broadcast it to your breakout windows.
+
+* **`1. Floating (Breakout_Window)`**
+  Routes the connected image to the in-app draggable panel. Perfect for keeping an eye on generations without cluttering your main ComfyUI canvas.
+* **`2. External (Breakout_Window)`**
+  Routes the connected image to the detached pop-out browser window. Ideal for multi-monitor setups. *(Note: Requires using a standard web browser like Chrome/Edge, not the ComfyUI Desktop App).*
+
+### Remote Controls
+These nodes allow you to build a custom control panel inside your breakout windows. They feature up/down arrow sorting, allowing you to organize your UI on the fly. 
+
+* **`3. Int (Breakout_Control)`**
+  Outputs a whole number (Integer). Useful for controlling `seed`, `steps`, `batch_size`, etc. Rendered as a text-editable number box in the breakout window.
+* **`4. Float (Breakout_Control)`**
+  Outputs a decimal number (Float). Useful for controlling `cfg_scale`, `denoise`, `lora_strength`, etc. Rendered as a text-editable decimal box in the breakout window.
+* **`5. String (Breakout_Control)`**
+  Outputs text (String). Hook this into a CLIP Text Encode node to control your positive or negative prompts directly from the breakout window. Rendered as a multi-line text area.
+
+💡 **Pro-Tip:** Every control node has a `control_name` input. Whatever you type here (e.g., "Positive Prompt" or "CFG Scale") is exactly what will be displayed as the label in your breakout window!
+
 ## ✨ Features
 
 * **In-App Floating Panel:** A sleek, draggable overlay that lives inside your ComfyUI window. Perfect for keeping an eye on your outputs while scrolling around a massive workflow.
