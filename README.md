@@ -1,8 +1,10 @@
-Windows UI compatible:
-<img width="2403" height="819" alt="image" src="https://github.com/user-attachments/assets/3cc0f89b-f35e-42ac-9b23-7589e737c278" />
+Windows UI compatible (floating window only):
+<img width="2451" height="1032" alt="image" src="https://github.com/user-attachments/assets/80c876e5-f5df-41eb-a373-9a1b114db8eb" />
+
 
 Browser compatible (breakout window enabled):
-<img width="2541" height="1059" alt="image" src="https://github.com/user-attachments/assets/a7aa23a1-04fd-4dc9-b7ca-d50028322b77" />
+<img width="2504" height="874" alt="image" src="https://github.com/user-attachments/assets/f0fdcdde-280e-4583-bd0d-e0f0c57efed2" />
+
 
 # 🪟 ComfyUI Breakout Window Preview
 
