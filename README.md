@@ -63,7 +63,7 @@ git clone https://github.com/PartiallyFrozen/ComfyUI-Breakout-Window.git
 
 This extension adds a new category of nodes under **Add Node > Breakout**.
 
-1. **Add a Node:** Right-click your canvas and add either the `1. Floating Window Preview` or `2. External Window Preview` node.
+1. **Add a Node:** Right-click your canvas and add either the `1. Floating (Breakout_Window)` or `2. External (Breakout_Window)` node.
 2. **Connect an Image:** Route the `IMAGE` output from your VAE Decode (or any image node) into the Breakout node.
 3. **Open the Viewer:** Look at the left-hand sidebar in ComfyUI and click the **Displays** icon (the desktop monitor). Click the button corresponding to your node to launch the viewing window.
 4. **Queue Prompt:** Whenever your workflow finishes, the image will automatically beam directly to your breakout window!
