@@ -6,45 +6,24 @@ Browser compatible (breakout window enabled):
 <img width="2504" height="874" alt="image" src="https://github.com/user-attachments/assets/f0fdcdde-280e-4583-bd0d-e0f0c57efed2" />
 
 
-# 🪟 ComfyUI Breakout Window Preview
+# 🪟 ComfyUI Breakout Window & Remote Control
 
-A custom node extension for ComfyUI that allows you to route your image previews to an in-app floating panel or a fully detached multi-monitor window. 
+A custom node extension for ComfyUI that allows you to route your image previews to a floating panel or a fully detached multi-monitor window, while providing a **customizable remote control panel** for your workflow.
 
-Whether you want a clean canvas without giant preview nodes cluttering your workspace, or you want to dedicate a second physical monitor purely to viewing your generated outputs, this plugin has you covered.
+Whether you want a clean canvas without giant preview nodes, want to dedicate a second physical monitor purely to viewing outputs, or want a centralized dashboard to tweak prompts and CFG scales without hunting for the nodes—this plugin has you covered.
 
 ## ✨ Features
 
-* **In-App Floating Panel:** A sleek, draggable overlay that lives inside your ComfyUI window. Perfect for keeping an eye on your outputs while scrolling around a massive workflow.
-* **External Monitor Support:** Spawns a dedicated, detached browser window. Drag it to your second monitor, make it fullscreen, and watch your images roll in. 
-* **Modern V1 UI Integration:** Adds a custom "Displays" tab right into the new ComfyUI sidebar for easy access to your breakout windows.
+* **Dual Display Modes:** Choose between a sleek, draggable **Floating Panel** inside the ComfyUI interface, or spawn a dedicated, detached **External Screen** to drag to your second monitor.
+* **Two-Way Remote Control:** Add custom Int, Float, String, and Boolean inputs to your workflow. They instantly appear in your breakout windows so you can tweak values and edit prompts remotely. 
+* **Custom Sorting:** Organize your control panel on the fly! Use the up (▲) and down (▼) arrows in the breakout window to sort your inputs perfectly. 
+* **Instant Queue:** A built-in "🚀 Queue" button lets you adjust a slider or prompt and immediately trigger a generation directly from your second monitor.
 * **Smart App Detection:** Automatically detects whether you are running ComfyUI in a Web Browser or the official Electron Desktop App, gracefully disabling the multi-monitor feature in Electron to prevent OS errors.
-
-This extension adds five custom nodes under the **Add Node > Breakout** menu. 
-
-### Viewers
-These nodes receive image data from your workflow and broadcast it to your breakout windows.
-
-* **`1. Floating (Breakout_Window)`**
-  Routes the connected image to the in-app draggable panel. Perfect for keeping an eye on generations without cluttering your main ComfyUI canvas.
-* **`2. External (Breakout_Window)`**
-  Routes the connected image to the detached pop-out browser window. Ideal for multi-monitor setups. *(Note: Requires using a standard web browser like Chrome/Edge, not the ComfyUI Desktop App).*
-
-### Remote Controls
-These nodes allow you to build a custom control panel inside your breakout windows. They feature up/down arrow sorting, allowing you to organize your UI on the fly. 
-
-* **`3. Int (Breakout_Control)`**
-  Outputs a whole number (Integer). Useful for controlling `seed`, `steps`, `batch_size`, etc. Rendered as a text-editable number box in the breakout window.
-* **`4. Float (Breakout_Control)`**
-  Outputs a decimal number (Float). Useful for controlling `cfg_scale`, `denoise`, `lora_strength`, etc. Rendered as a text-editable decimal box in the breakout window.
-* **`5. String (Breakout_Control)`**
-  Outputs text (String). Hook this into a CLIP Text Encode node to control your positive or negative prompts directly from the breakout window. Rendered as a multi-line text area.
-
-💡 **Pro-Tip:** Every control node has a `control_name` input. Whatever you type here (e.g., "Positive Prompt" or "CFG Scale") is exactly what will be displayed as the label in your breakout window!
 
 ## 🚀 Installation
 
 ### Option 1: ComfyUI Manager (Recommended)
-*(Note: Waiting for approval to the default manager list!)*
+*(Note: Pending approval to the default manager list!)*
 1. Open the ComfyUI Manager.
 2. Click **Install Custom Nodes**.
 3. Search for `Breakout Window`.
@@ -55,40 +34,44 @@ These nodes allow you to build a custom control panel inside your breakout windo
 2. Open your terminal or command prompt.
 3. Clone this repository:
 ```bash
-git clone https://github.com/PartiallyFrozen/ComfyUI-Breakout-Window.git
+git clone [https://github.com/](https://github.com/)[your-username]/ComfyUI-Breakout-Window.git
 ```
-4. Restart your ComfyUI server and refresh your browser.
+4. Restart your ComfyUI server and refresh your browser completely (`Ctrl` + `Shift` + `R`).
+
+## 🧩 Available Nodes
+
+This extension adds six custom nodes under the **Breakout** category. 
+
+### Viewers
+These nodes receive image data from your workflow and broadcast it to your breakout windows.
+* **`Floating (Breakout_Window)`**: Routes the connected image to the in-app draggable panel.
+* **`External (Breakout_Window)`**: Routes the connected image to the detached pop-out browser window. *(Requires using a standard web browser like Chrome/Edge).*
+
+### Remote Controls
+Connect these to your workflow inputs (like `seed`, `cfg_scale`, or `text` prompts). They automatically generate synced inputs inside your breakout windows.
+* **`Int (Breakout_Control)`**: Outputs a whole number (Integer). Rendered as a number box.
+* **`Float (Breakout_Control)`**: Outputs a decimal number (Float). Rendered as a decimal box.
+* **`String (Breakout_Control)`**: Outputs text (String). Rendered as a multi-line text area.
+* **`Bool (Breakout_Control)`**: Outputs a True/False toggle (Boolean). Rendered as a checkbox.
+
+💡 **Pro-Tip:** Every control node has a `control_name` input on the canvas. Whatever you type here (e.g., "Positive Prompt" or "CFG Scale") is exactly what will be displayed as the label in your breakout window!
 
 ## 🛠️ How to Use
 
-This extension adds a new category of nodes under **Add Node > Breakout**.
-
-1. **Add a Node:** Right-click your canvas and add either the `1. Floating (Breakout_Window)` or `2. External (Breakout_Window)` node.
-2. **Connect an Image:** Route the `IMAGE` output from your VAE Decode (or any image node) into the Breakout node.
-3. **Open the Viewer:** Look at the left-hand sidebar in ComfyUI and click the **Displays** icon (the desktop monitor). Click the button corresponding to your node to launch the viewing window.
-4. **Queue Prompt:** Whenever your workflow finishes, the image will automatically beam directly to your breakout window!
+1. **Add Nodes:** Right-click your canvas, go to **Breakout**, and add your desired Viewer and Control nodes. Connect them to your workflow.
+2. **Open the Viewer:** Look at the left-hand sidebar in ComfyUI and click the **Displays** icon (the desktop monitor). Click the button to launch either the Floating or External window.
+3. **Refresh UI:** If you add new control nodes *after* opening the window, simply click the **↻ Refresh** button in the breakout panel to scan the canvas and generate your new inputs.
+4. **Sort & Generate:** Use the arrows to organize your controls, tweak your values, and hit **🚀 Queue**!
 
 ## ⚠️ Compatibility & Desktop App Limitations
 
 Because of security restrictions in the framework used to build the **Official ComfyUI Desktop App (Electron)**, literal pop-up windows are blocked by the operating system. 
 
 * **If using a Web Browser (Chrome, Edge, Firefox, etc.):** Both the Floating Panel and the External Multi-Monitor window are fully supported.
-* **If using the ComfyUI Desktop App:** Only the In-App Floating Panel is supported. The "External Screen" button will automatically disable itself to prevent Windows errors. To use the multi-monitor feature, simply leave the desktop app running in the background, open Google Chrome, and navigate to your local server address (usually `http://127.0.0.1:8188`).
-
-## 📁 Folder Structure
-If installing manually without Git, ensure your folder structure looks exactly like this:
-```text
-ComfyUI/
-└── custom_nodes/
-    └── ComfyUI-Breakout-Window/
-        ├── __init__.py
-        ├── README.md
-        └── web/
-            └── breakout.js
-```
+* **If using the ComfyUI Desktop App:** Only the In-App Floating Panel is supported. To use the multi-monitor feature, simply leave the desktop app running in the background, open Google Chrome, and navigate to your local server address (usually `http://127.0.0.1:8188`).
 
 ## 🤝 Contributing
-Pull requests are welcome! If you have ideas for adding new features (like saving images directly from the breakout window or adding video support), feel free to open an issue or submit a PR.
+Pull requests are welcome! If you have ideas for adding new features, feel free to open an issue or submit a PR.
 
 ## 📜 License
 MIT License. Feel free to use and modify!
