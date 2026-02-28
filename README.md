@@ -12,6 +12,13 @@ A custom node extension for ComfyUI that allows you to route your image previews
 
 Whether you want a clean canvas without giant preview nodes cluttering your workspace, or you want to dedicate a second physical monitor purely to viewing your generated outputs, this plugin has you covered.
 
+## ✨ Features
+
+* **In-App Floating Panel:** A sleek, draggable overlay that lives inside your ComfyUI window. Perfect for keeping an eye on your outputs while scrolling around a massive workflow.
+* **External Monitor Support:** Spawns a dedicated, detached browser window. Drag it to your second monitor, make it fullscreen, and watch your images roll in. 
+* **Modern V1 UI Integration:** Adds a custom "Displays" tab right into the new ComfyUI sidebar for easy access to your breakout windows.
+* **Smart App Detection:** Automatically detects whether you are running ComfyUI in a Web Browser or the official Electron Desktop App, gracefully disabling the multi-monitor feature in Electron to prevent OS errors.
+
 This extension adds five custom nodes under the **Add Node > Breakout** menu. 
 
 ### Viewers
@@ -33,13 +40,6 @@ These nodes allow you to build a custom control panel inside your breakout windo
   Outputs text (String). Hook this into a CLIP Text Encode node to control your positive or negative prompts directly from the breakout window. Rendered as a multi-line text area.
 
 💡 **Pro-Tip:** Every control node has a `control_name` input. Whatever you type here (e.g., "Positive Prompt" or "CFG Scale") is exactly what will be displayed as the label in your breakout window!
-
-## ✨ Features
-
-* **In-App Floating Panel:** A sleek, draggable overlay that lives inside your ComfyUI window. Perfect for keeping an eye on your outputs while scrolling around a massive workflow.
-* **External Monitor Support:** Spawns a dedicated, detached browser window. Drag it to your second monitor, make it fullscreen, and watch your images roll in. 
-* **Modern V1 UI Integration:** Adds a custom "Displays" tab right into the new ComfyUI sidebar for easy access to your breakout windows.
-* **Smart App Detection:** Automatically detects whether you are running ComfyUI in a Web Browser or the official Electron Desktop App, gracefully disabling the multi-monitor feature in Electron to prevent OS errors.
 
 ## 🚀 Installation
 
