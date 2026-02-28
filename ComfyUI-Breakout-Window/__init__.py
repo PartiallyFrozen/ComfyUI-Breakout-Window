@@ -86,8 +86,8 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "FloatingWindowPreview": "Floating Window Preview",
-    "ExternalWindowPreview": "External Window Preview",
+    "FloatingWindowPreview": "Floating (Breakout_Window)",
+    "ExternalWindowPreview": "External (Breakout_Window)",
     "BreakoutIntControl": "Int (Breakout_Control)",
     "BreakoutFloatControl": "Float (Breakout_Control)",
     "BreakoutStringControl": "String (Breakout_Control)"
