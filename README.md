@@ -3,6 +3,12 @@ A custom node extension for ComfyUI that allows you to route your image previews
 
 Whether you want a clean canvas without giant preview nodes cluttering your workspace, or you want to dedicate a second physical monitor purely to viewing your generated outputs, this plugin has you covered.
 
+Windows UI compatible:
+<img width="2403" height="819" alt="image" src="https://github.com/user-attachments/assets/3cc0f89b-f35e-42ac-9b23-7589e737c278" />
+
+Browser compatible (breakout window enabled):
+<img width="2541" height="1059" alt="image" src="https://github.com/user-attachments/assets/a7aa23a1-04fd-4dc9-b7ca-d50028322b77" />
+
 ✨ Features
 In-App Floating Panel: A sleek, draggable overlay that lives inside your ComfyUI window. Perfect for keeping an eye on your outputs while scrolling around a massive workflow.
 
