@@ -1,77 +1,81 @@
-Windows UI compatible (floating window only):
-<img width="2451" height="1032" alt="image" src="https://github.com/user-attachments/assets/80c876e5-f5df-41eb-a373-9a1b114db8eb" />
+# 🚀 ComfyUI Breakout v2.0: The "Control Deck" Update
 
+Welcome to **Version 2.0** of ComfyUI Breakout! This major release transforms the extension from a simple floating window tool into a full-fledged, memory-safe, bidirectional "Control Deck" for your workflows. 
 
-Browser compatible (breakout window enabled):
-<img width="2504" height="874" alt="image" src="https://github.com/user-attachments/assets/f0fdcdde-280e-4583-bd0d-e0f0c57efed2" />
+Whether you use a single monitor or a multi-monitor setup, v2.0 introduces powerful new ways to interact with, organize, and execute your ComfyUI graphs without ever touching the noodle spaghetti.
 
+---
 
-# 🪟 ComfyUI Breakout Window & Remote Control
+## ✨ What's New in v2.0
 
-A custom node extension for ComfyUI that allows you to route your image previews to a floating panel or a fully detached multi-monitor window, while providing a **customizable remote control panel** for your workflow.
+### ☯ Zen Mode
+A completely new way to interact with your workflow. Clicking the **☯ Zen Mode** button in the sidebar dims the ComfyUI canvas and brings all your floating breakout panels into a clean, focused, auto-organized grid overlay. 
+* **Auto-Open:** Optionally trigger the External Dashboard to open alongside Zen Mode via a toggle checkbox.
+* **Clean Exit:** Choose to either leave your windows open when exiting Zen Mode, or check "Close all windows on exit" to instantly clear your board and return to pure ComfyUI.
 
-Whether you want a clean canvas without giant preview nodes, want to dedicate a second physical monitor purely to viewing outputs, or want a centralized dashboard to tweak prompts and CFG scales without hunting for the nodes—this plugin has you covered.
+### 🌐 The Unified External Dashboard
+Say goodbye to popup blocker nightmares and scattered windows. All external breakout panels now open inside a **single, unified browser window**. As you send more panels to the external mode, they will automatically arrange themselves into a responsive, beautiful grid.
 
-## ✨ Features
+### 🖼️📝 Multi-Data Support (Images & Text)
+The Breakout Hub is no longer just for images! The input port now accepts `*` (Any). 
+* **Image Logic:** Plug in an image, and the window dynamically scales to show the image preview.
+* **Text Logic:** Plug in a String/Text output, and the window instantly morphs to display a clean, scrollable, monospace text box.
 
-* **Dual Display Modes:** Choose between a sleek, draggable **Floating Panel** inside the ComfyUI interface, or spawn a dedicated, detached **External Screen** to drag to your second monitor.
-* **Two-Way Remote Control:** Add custom Int, Float, String, and Boolean inputs to your workflow. They instantly appear in your breakout windows so you can tweak values and edit prompts remotely. 
-* **Custom Sorting:** Organize your control panel on the fly! Use the up (▲) and down (▼) arrows in the breakout window to sort your inputs perfectly. 
-* **Instant Queue:** A built-in "🚀 Queue" button lets you adjust a slider or prompt and immediately trigger a generation directly from your second monitor.
-* **Smart App Detection:** Automatically detects whether you are running ComfyUI in a Web Browser or the official Electron Desktop App, gracefully disabling the multi-monitor feature in Electron to prevent OS errors.
+### 🔗 Pass-Through Hubs
+Breakout Windows now feature an **Output Port**. You can drop a Breakout Window directly into the middle of an existing node chain (e.g., between your VAE Decode and your Save Image node) without breaking the flow. It acts as a perfect data pass-through.
 
-## 🚀 Installation
+### 🌱 Advanced Seed Control
+Introduced the new `BreakoutSeedControl` node. This natively supports ComfyUI's random seed behaviors right from your breakout panels. 
+* Choose between `fixed`, `increment`, `decrement`, or `randomize` directly from the dashboard UI. 
+* The extension listens to ComfyUI's execution engine and automatically syncs the newly generated seed back to your UI panels instantly.
 
-### Option 1: ComfyUI Manager (Recommended)
-*(Note: Pending approval to the default manager list!)*
-1. Open the ComfyUI Manager.
-2. Click **Install Custom Nodes**.
-3. Search for `Breakout Window`.
-4. Click Install and restart your server.
+---
 
-### Option 2: Manual Git Clone
-1. Navigate to your ComfyUI `custom_nodes` directory.
-2. Open your terminal or command prompt.
-3. Clone this repository:
+## 🛠️ Quality of Life & UI/UX Enhancements
+
+* **Smart Canvas Scraping:** Opening a Breakout Window will now instantly pull any image or text that was *already generated* on that node. No more re-running your prompts just to populate the windows!
+* **Isolated Execution ("Run Window"):** Clicking "Run Window" on a specific panel traces the graph backward to *only* execute the nodes necessary for that specific window, saving massive amounts of compute time.
+* **Smart Unique Naming:** Clicking "Set Unique Titles" now logically names your windows based on their current state (e.g., *Breakout Control Window 1*, *Breakout External Window 2*, *Breakout Floating Window 1*).
+* **Dynamic Sidebar:** The Displays menu is now context-aware. If you have no windows open, the "Close All Open Windows" button automatically greys out and disables.
+* **Auto-Resizing Text Inputs:** Multi-line string controls on the dashboard now automatically expand as you type (capping at ~10 lines) for a much cleaner UI.
+
+---
+
+## 🔧 Under the Hood (Performance Architecture)
+
+Version 2.0 features a completely rewritten DOM management and synchronization baseline:
+* **Zero Memory Leaks:** Background polling loops have been removed. The sidebar now refreshes instantly and contextually when you click the "Displays" tab.
+* **Rock-Solid Syncing:** Control nodes (Int, Float, String, Bool, Seed) now use a strict widget wait-loop (`wrapNameWidget`). This guarantees that user inputs on the dashboard flawlessly sync bidirectionally with the canvas, regardless of load speed.
+* **Shadow DOM Safe:** Fixed issues where collapsing and reopening the ComfyUI sidebar would result in blank menus or disconnected buttons.
+
+---
+
+## 📦 Installation & Updating
+
+**If you are updating from v1.x:**
+Navigate to your `ComfyUI/custom_nodes/` directory and pull the latest changes:
 ```bash
-git clone [https://github.com/](https://github.com/)[your-username]/ComfyUI-Breakout-Window.git
+cd ComfyUI/custom_nodes/ComfyUI-Breakout-Window
+git pull
 ```
-4. Restart your ComfyUI server and refresh your browser completely (`Ctrl` + `Shift` + `R`).
 
-## 🧩 Available Nodes
+Note: We highly recommend refreshing your browser cache (Ctrl+F5 or Cmd+Shift+R) after updating to ensure the new JS files load correctly!
 
-This extension adds six custom nodes under the **Breakout** category. 
+New Installation:
+Clone the repository into your custom_nodes folder:
 
-### Viewers
-These nodes receive image data from your workflow and broadcast it to your breakout windows.
-* **`Floating (Breakout_Window)`**: Routes the connected image to the in-app draggable panel.
-* **`External (Breakout_Window)`**: Routes the connected image to the detached pop-out browser window. *(Requires using a standard web browser like Chrome/Edge).*
+Bash
+```
+cd ComfyUI/custom_nodes
+git clone https://github.com/Partiallyfrozen/ComfyUI-Breakout-Window.git
+```
 
-### Remote Controls
-Connect these to your workflow inputs (like `seed`, `cfg_scale`, or `text` prompts). They automatically generate synced inputs inside your breakout windows.
-* **`Int (Breakout_Control)`**: Outputs a whole number (Integer). Rendered as a number box.
-* **`Float (Breakout_Control)`**: Outputs a decimal number (Float). Rendered as a decimal box.
-* **`String (Breakout_Control)`**: Outputs text (String). Rendered as a multi-line text area.
-* **`Bool (Breakout_Control)`**: Outputs a True/False toggle (Boolean). Rendered as a checkbox.
+## 🧩 Included Nodes
+*Breakout Window (Hub): The main display node. Can be set to Floating or External. Now acts as a pass-through.
 
-💡 **Pro-Tip:** Every control node has a `control_name` input on the canvas. Whatever you type here (e.g., "Positive Prompt" or "CFG Scale") is exactly what will be displayed as the label in your breakout window!
+* **Int (Breakout_Control):** Integer input synced to the dashboard.
+* **Float (Breakout_Control):** Float input synced to the dashboard.
+* **String (Breakout_Control):** Multi-line text input synced to the dashboard.
+* **Bool (Breakout_Control):** Checkbox toggle synced to the dashboard.
+* **Seed (Breakout_Control):** (NEW) Seed integer + behavior dropdown (fixed/increment/decrement/randomize) synced to the dashboard.
 
-## 🛠️ How to Use
-
-1. **Add Nodes:** Right-click your canvas, go to **Breakout**, and add your desired Viewer and Control nodes. Connect them to your workflow.
-2. **Open the Viewer:** Look at the left-hand sidebar in ComfyUI and click the **Displays** icon (the desktop monitor). Click the button to launch either the Floating or External window.
-3. **Refresh UI:** If you add new control nodes *after* opening the window, simply click the **↻ Refresh** button in the breakout panel to scan the canvas and generate your new inputs.
-4. **Sort & Generate:** Use the arrows to organize your controls, tweak your values, and hit **🚀 Queue**!
-
-## ⚠️ Compatibility & Desktop App Limitations
-
-Because of security restrictions in the framework used to build the **Official ComfyUI Desktop App (Electron)**, literal pop-up windows are blocked by the operating system. 
-
-* **If using a Web Browser (Chrome, Edge, Firefox, etc.):** Both the Floating Panel and the External Multi-Monitor window are fully supported.
-* **If using the ComfyUI Desktop App:** Only the In-App Floating Panel is supported. To use the multi-monitor feature, simply leave the desktop app running in the background, open Google Chrome, and navigate to your local server address (usually `http://127.0.0.1:8188`).
-
-## 🤝 Contributing
-Pull requests are welcome! If you have ideas for adding new features, feel free to open an issue or submit a PR.
-
-## 📜 License
-MIT License. Feel free to use and modify!
