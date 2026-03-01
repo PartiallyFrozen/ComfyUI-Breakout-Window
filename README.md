@@ -6,6 +6,17 @@ Whether you use a single monitor or a multi-monitor setup, v2.0 introduces power
 
 ---
 
+**Multi-Window (External only):**
+<img width="2535" height="1356" alt="image" src="https://github.com/user-attachments/assets/a02c982b-68a3-430a-ac39-e5c91837bc26" />
+
+**Multi-Window (Floating Only):**
+<img width="2517" height="1213" alt="image" src="https://github.com/user-attachments/assets/dd623a4b-0a60-4435-bf00-a7196c151ae3" />
+
+**Multi-Window (Mixed):**
+<img width="2519" height="1044" alt="image" src="https://github.com/user-attachments/assets/18e65307-5611-4938-b71e-69212b61dbae" />
+
+
+
 ## ✨ What's New in v2.0
 
 ### ☯ Zen Mode
