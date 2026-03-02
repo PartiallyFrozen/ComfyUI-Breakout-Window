@@ -4,6 +4,8 @@ Welcome to **Version 2.0** of ComfyUI Breakout! This major release transforms th
 
 Whether you use a single monitor or a multi-monitor setup, v2.0 introduces powerful new ways to interact with, organize, and execute your ComfyUI graphs without ever touching the noodle spaghetti.
 
+Please NOTE! External Windows only work when using Comfyui from inside a browser window. It will not work for use in the Windows Standalone App. Floating windows and Zen Mode with floating windows still works fine for use in the Windows standalone. Feel free to use the buttons "Make all Floating" to help with this if needed!
+
 ---
 
 **Multi-Window (External only):**
@@ -58,15 +60,6 @@ Introduced the new `BreakoutSeedControl` node. This natively supports ComfyUI's 
 * **Smart Unique Naming:** Clicking "Set Unique Titles" now logically names your windows based on their current state (e.g., *Breakout Control Window 1*, *Breakout External Window 2*, *Breakout Floating Window 1*).
 * **Dynamic Sidebar:** The Displays menu is now context-aware. If you have no windows open, the "Close All Open Windows" button automatically greys out and disables.
 * **Auto-Resizing Text Inputs:** Multi-line string controls on the dashboard now automatically expand as you type (capping at ~10 lines) for a much cleaner UI.
-
----
-
-## 🔧 Under the Hood (Performance Architecture)
-
-Version 2.0 features a completely rewritten DOM management and synchronization baseline:
-* **Zero Memory Leaks:** Background polling loops have been removed. The sidebar now refreshes instantly and contextually when you click the "Displays" tab.
-* **Rock-Solid Syncing:** Control nodes (Int, Float, String, Bool, Seed) now use a strict widget wait-loop (`wrapNameWidget`). This guarantees that user inputs on the dashboard flawlessly sync bidirectionally with the canvas, regardless of load speed.
-* **Shadow DOM Safe:** Fixed issues where collapsing and reopening the ComfyUI sidebar would result in blank menus or disconnected buttons.
 
 ---
 
