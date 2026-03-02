@@ -15,6 +15,15 @@ Whether you use a single monitor or a multi-monitor setup, v2.0 introduces power
 **Multi-Window (Mixed):**
 <img width="2519" height="1044" alt="image" src="https://github.com/user-attachments/assets/18e65307-5611-4938-b71e-69212b61dbae" />
 
+**Zen Mode (Floating only):**
+<img width="2540" height="1368" alt="image" src="https://github.com/user-attachments/assets/13a8a68b-2c7b-434a-94d5-439a4235c427" />
+
+**Zen Mode (External only):**
+<img width="2128" height="1139" alt="image" src="https://github.com/user-attachments/assets/875889ca-cb75-4d09-8cbd-880f107c9f59" />
+
+**Zen Mode (Mixed):**
+<img width="2412" height="1138" alt="image" src="https://github.com/user-attachments/assets/226975f3-67a7-48d2-9f04-a844ab46ba06" />
+
 
 
 ## ✨ What's New in v2.0
