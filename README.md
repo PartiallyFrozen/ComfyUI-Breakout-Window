@@ -41,6 +41,7 @@ Your exact panel layout, column settings, and window order are natively bound to
 ### 📊 Live Progress & Mini-Galleries
 * **Live Progress Bars:** Sleek gradient progress bars track your generation in real-time across all dashboards, displaying the exact node currently executing and its completion percentage.
 * **History Gallery:** Breakout Hubs automatically remember your last 10 generations (including batch sizes > 1). Scroll through your history using unobtrusive navigation arrows tucked cleanly into the control header.
+* **Drag & Drop:** Drag an image out from the breakout window onto the workspace to automatically create an Load Image node or to a tab an open that version as a new scene.
 
 ### ⚡ Cache-Busting Isolated Execution ("Run Window")
 Clicking "Run Window" on a specific panel traces the graph backward to *only* execute the nodes necessary for that specific window. 
