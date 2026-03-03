@@ -9,22 +9,22 @@ Whether you use a single monitor or a multi-monitor setup, Breakout Windows intr
 ---
 
 **Multi-Window (External only):**
-<img width="2535" height="1356" alt="image" src="https://github.com/user-attachments/assets/a02c982b-68a3-430a-ac39-e5c91837bc26" />
+<img width="1268" height="678" alt="image" src="https://github.com/user-attachments/assets/a02c982b-68a3-430a-ac39-e5c91837bc26" />
 
 **Multi-Window (Floating Only):**
-<img width="2517" height="1213" alt="image" src="https://github.com/user-attachments/assets/dd623a4b-0a60-4435-bf00-a7196c151ae3" />
+<img width="1259" height="607" alt="image" src="https://github.com/user-attachments/assets/dd623a4b-0a60-4435-bf00-a7196c151ae3" />
 
 **Multi-Window (Mixed):**
-<img width="2519" height="1044" alt="image" src="https://github.com/user-attachments/assets/18e65307-5611-4938-b71e-69212b61dbae" />
+<img width="1260" height="522" alt="image" src="https://github.com/user-attachments/assets/18e65307-5611-4938-b71e-69212b61dbae" />
 
 **Zen Mode (Floating only):**
-<img width="2540" height="1368" alt="image" src="https://github.com/user-attachments/assets/13a8a68b-2c7b-434a-94d5-439a4235c427" />
+<img width="1270" height="684" alt="image" src="https://github.com/user-attachments/assets/13a8a68b-2c7b-434a-94d5-439a4235c427" />
 
 **Zen Mode (External only):**
-<img width="2128" height="1139" alt="image" src="https://github.com/user-attachments/assets/875889ca-cb75-4d09-8cbd-880f107c9f59" />
+<img width="1064" height="570" alt="image" src="https://github.com/user-attachments/assets/875889ca-cb75-4d09-8cbd-880f107c9f59" />
 
 **Zen Mode (Mixed):**
-<img width="2412" height="1138" alt="image" src="https://github.com/user-attachments/assets/226975f3-67a7-48d2-9f04-a844ab46ba06" />
+<img width="1206" height="569" alt="image" src="https://github.com/user-attachments/assets/226975f3-67a7-48d2-9f04-a844ab46ba06" />
 
 ---
 
