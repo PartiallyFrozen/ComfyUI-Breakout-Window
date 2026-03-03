@@ -1,10 +1,10 @@
-# 🚀 ComfyUI Breakout v2.0: The "Control Deck" Update
+# 🚀 ComfyUI Breakout Windows: The "Control Deck"
 
-Welcome to **Version 2.0** of ComfyUI Breakout! This major release transforms the extension from a simple floating window tool into a full-fledged, memory-safe, bidirectional "Control Deck" for your workflows. 
+Welcome to **ComfyUI Breakout Windows**! This extension transforms from a simple floating window tool into a full-fledged, memory-safe, bidirectional "Control Deck" for your workflows. 
 
-Whether you use a single monitor or a multi-monitor setup, v2.0 introduces powerful new ways to interact with, organize, and execute your ComfyUI graphs without ever touching the noodle spaghetti.
+Whether you use a single monitor or a multi-monitor setup, Breakout Windows introduces powerful new ways to interact with, organize, and execute your ComfyUI graphs without ever touching the noodle spaghetti.
 
-Please NOTE! External Windows only work when using Comfyui from inside a browser window. It will not work for use in the Windows Standalone App. Floating windows and Zen Mode with floating windows still works fine for use in the Windows standalone. Feel free to use the buttons "Make all Floating" to help with this if needed!
+**Please NOTE!** External Windows only work when using ComfyUI from inside a browser window. It will not work for use in the Windows Standalone App. Floating windows and Zen Mode with floating windows still work fine for use in the Windows standalone. Feel free to use the buttons "Make all Floating" to help with this if needed!
 
 ---
 
@@ -26,69 +26,72 @@ Please NOTE! External Windows only work when using Comfyui from inside a browser
 **Zen Mode (Mixed):**
 <img width="2412" height="1138" alt="image" src="https://github.com/user-attachments/assets/226975f3-67a7-48d2-9f04-a844ab46ba06" />
 
+---
 
+## ✨ Key Features (The Power User Update)
 
-## ✨ What's New in v2.0
+### 🧱 "Tetris" Masonry Grid & Column Controls
+The dashboard uses a Masonry layout to densely pack your UI. Short text controls will automatically slide up to fill gaps next to tall image previews, eliminating dead space!
+* **Column Controller:** Force the layout into 1, 2, 3, 4, 5, or "Auto" columns on the fly using the header buttons.
+* **Snap-to-Grid Drag & Drop:** Grab a window by the header and drag it over another to effortlessly swap places. The grid instantly reflows.
 
-### ☯ Zen Mode
-A completely new way to interact with your workflow. Clicking the **☯ Zen Mode** button in the sidebar dims the ComfyUI canvas and brings all your floating breakout panels into a clean, focused, auto-organized grid overlay. 
-* **Auto-Open:** Optionally trigger the External Dashboard to open alongside Zen Mode via a toggle checkbox.
-* **Clean Exit:** Choose to either leave your windows open when exiting Zen Mode, or check "Close all windows on exit" to instantly clear your board and return to pure ComfyUI.
+### 💾 Native Workflow Saving
+Your exact panel layout, column settings, and window order are natively bound to the ComfyUI graph. When you click "Save", **your custom dashboard layout is baked directly into the `.json` or `.png` file**. Load a workflow, and your command center rebuilds itself instantly!
 
-### 🌐 The Unified External Dashboard
-Say goodbye to popup blocker nightmares and scattered windows. All external breakout panels now open inside a **single, unified browser window**. As you send more panels to the external mode, they will automatically arrange themselves into a responsive, beautiful grid.
+### 📊 Live Progress & Mini-Galleries
+* **Live Progress Bars:** Sleek gradient progress bars track your generation in real-time across all dashboards, displaying the exact node currently executing and its completion percentage.
+* **History Gallery:** Breakout Hubs automatically remember your last 10 generations (including batch sizes > 1). Scroll through your history using unobtrusive navigation arrows tucked cleanly into the control header.
+
+### ⚡ Cache-Busting Isolated Execution ("Run Window")
+Clicking "Run Window" on a specific panel traces the graph backward to *only* execute the nodes necessary for that specific window. 
+* **Smart Seed Scrambling:** It intelligently intercepts and scrambles native KSampler seeds *before* extracting the sub-graph, ensuring you always get a fresh image instead of a cached repeat.
+
+### 🎛️ Inline Mode Switcher
+The "Displays" sidebar tab features native dropdowns next to every detected hub. You can instantly bounce windows between Floating, External, and Control Panel modes without ever hunting for the node on the canvas.
+
+### ☯ Zen Mode & 🌐 Unified External Dashboard
+* **Zen Mode:** Dims the ComfyUI canvas and brings your breakout panels forward into a clean, auto-organized grid overlay. Optionally auto-opens the External Dashboard and offers a "Close all windows on exit" toggle.
+* **Unified External:** All external breakout panels open inside a single, unified browser window (`http://127.0.0.1:8188`). Say goodbye to popup blocker nightmares and scattered tabs.
 
 ### 🖼️📝 Multi-Data Support (Images & Text)
-The Breakout Hub is no longer just for images! The input port now accepts `*` (Any). 
-* **Image Logic:** Plug in an image, and the window dynamically scales to show the image preview.
-* **Text Logic:** Plug in a String/Text output, and the window instantly morphs to display a clean, scrollable, monospace text box.
-
-### 🔗 Pass-Through Hubs
-Breakout Windows now feature an **Output Port**. You can drop a Breakout Window directly into the middle of an existing node chain (e.g., between your VAE Decode and your Save Image node) without breaking the flow. It acts as a perfect data pass-through.
+The Breakout Hub is not just for images! Plug in an image to see a preview, or plug in a String/Text output, and the window instantly morphs to display a clean, scrollable, monospace text box. You can even drop them into the middle of a node chain as a **Pass-Through**.
 
 ### 🌱 Advanced Seed Control
-Introduced the new `BreakoutSeedControl` node. This natively supports ComfyUI's random seed behaviors right from your breakout panels. 
-* Choose between `fixed`, `increment`, `decrement`, or `randomize` directly from the dashboard UI. 
-* The extension listens to ComfyUI's execution engine and automatically syncs the newly generated seed back to your UI panels instantly.
+The `BreakoutSeedControl` node natively supports ComfyUI's random seed behaviors right from your breakout panels. Choose between `fixed`, `increment`, `decrement`, or `randomize`. It smartly updates at the end of the generation queue to prevent double-rolling.
 
 ---
 
-## 🛠️ Quality of Life & UI/UX Enhancements
+## 🛠️ Quality of Life Enhancements
 
-* **Smart Canvas Scraping:** Opening a Breakout Window will now instantly pull any image or text that was *already generated* on that node. No more re-running your prompts just to populate the windows!
-* **Isolated Execution ("Run Window"):** Clicking "Run Window" on a specific panel traces the graph backward to *only* execute the nodes necessary for that specific window, saving massive amounts of compute time.
-* **Smart Unique Naming:** Clicking "Set Unique Titles" now logically names your windows based on their current state (e.g., *Breakout Control Window 1*, *Breakout External Window 2*, *Breakout Floating Window 1*).
-* **Dynamic Sidebar:** The Displays menu is now context-aware. If you have no windows open, the "Close All Open Windows" button automatically greys out and disables.
-* **Auto-Resizing Text Inputs:** Multi-line string controls on the dashboard now automatically expand as you type (capping at ~10 lines) for a much cleaner UI.
+* **Smart Canvas Scraping:** Opening a Breakout Window will instantly pull any image or text that was *already generated* on that node. No need to re-run your prompts!
+* **Memory-Safe Architecture:** Completely rebuilt sync engine eliminates background polling loops and "Ghost DOM" memory leaks.
+* **Smart Unique Naming:** Clicking "Set Unique Titles" logically names your windows based on their current state.
+* **Auto-Resizing Text Inputs:** Multi-line string controls on the dashboard automatically expand as you type for a much cleaner UI.
 
 ---
 
 ## 📦 Installation & Updating
 
-**If you are updating from v1.x:**
+**If you are updating an existing installation:**
 Navigate to your `ComfyUI/custom_nodes/` directory and pull the latest changes:
 ```bash
-cd ComfyUI/custom_nodes/ComfyUI-Breakout-Window
+cd ComfyUI/custom_nodes/ComfyUI-Breakout-Windows
 git pull
 ```
 
-Note: We highly recommend refreshing your browser cache (Ctrl+F5 or Cmd+Shift+R) after updating to ensure the new JS files load correctly!
+*Note: We highly recommend refreshing your browser cache (Ctrl+F5 or Cmd+Shift+R) after updating to ensure the new JS files load correctly!*
 
-New Installation:
-Clone the repository into your custom_nodes folder:
-
-Bash
-```
+**New Installation:**
+Clone the repository into your `custom_nodes` folder:
+```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/Partiallyfrozen/ComfyUI-Breakout-Window.git
+git clone [https://github.com/Partiallyfrozen/ComfyUI-Breakout-Windows.git](https://github.com/Partiallyfrozen/ComfyUI-Breakout-Windows.git)
 ```
 
 ## 🧩 Included Nodes
-*Breakout Window (Hub): The main display node. Can be set to Floating or External. Now acts as a pass-through.
-
+* **Breakout Window (Hub):** The main display node. Can be set to Floating, External, or Control Panel. Now acts as a pass-through.
 * **Int (Breakout_Control):** Integer input synced to the dashboard.
 * **Float (Breakout_Control):** Float input synced to the dashboard.
 * **String (Breakout_Control):** Multi-line text input synced to the dashboard.
 * **Bool (Breakout_Control):** Checkbox toggle synced to the dashboard.
-* **Seed (Breakout_Control):** (NEW) Seed integer + behavior dropdown (fixed/increment/decrement/randomize) synced to the dashboard.
-
+* **Seed (Breakout_Control):** Seed integer + behavior dropdown (fixed/increment/decrement/randomize) synced to the dashboard.
