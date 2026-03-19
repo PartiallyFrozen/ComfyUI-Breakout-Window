@@ -76,7 +76,7 @@ The `BreakoutSeedControl` node natively supports ComfyUI's random seed behaviors
 **If you are updating an existing installation:**
 Navigate to your `ComfyUI/custom_nodes/` directory and pull the latest changes:
 ```bash
-cd ComfyUI/custom_nodes/ComfyUI-Breakout-Windows
+cd ComfyUI/custom_nodes/ComfyUI-Breakout-Window
 git pull
 ```
 
@@ -86,7 +86,7 @@ git pull
 Clone the repository into your `custom_nodes` folder:
 ```bash
 cd ComfyUI/custom_nodes
-git clone [https://github.com/Partiallyfrozen/ComfyUI-Breakout-Windows.git](https://github.com/Partiallyfrozen/ComfyUI-Breakout-Windows.git)
+git clone https://github.com/Partiallyfrozen/ComfyUI-Breakout-Window.git
 ```
 
 ## 🧩 Included Nodes
